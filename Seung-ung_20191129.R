@@ -41,7 +41,7 @@ abs(mean(d2)-d2)
 sort(d1,decreasing = TRUE)
 
 # 9. d1, d2  오름차순으로 정렬 후 각 10개씩을 추출하여 d3에 저장
-a <- c(head(sort(d1,decreasing = FALSE),10))
+a <-head(sort(d1,decreasing = FALSE),10)
 a
 b <-head(sort(d2,decreasing = FALSE),10)
 b
@@ -54,13 +54,13 @@ v1 <- c(51:90)
 v1
 # 
 # 1. 60보다 작은 수 모두 출력
-v1[v1<60]
+v1[v1<=60]
 
 # 2. 70보다 작은 수가 몇 개인지 출력
-sum(v1<70)
+sum(v1>=70)
 
 # 3. 65보다 큰 수들의 합 출력
-sum(v1[v1>65])
+sum(v1[v1<=65])
 
 # 4. 60보다 크고 73보다 작은 수를 출력
 v1[v1>60 & v1<73]
