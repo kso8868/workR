@@ -46,16 +46,21 @@ colnames(st)
 rownames(st)
 
 # 5. st의 행의 개수와 열의 개수 출력
-dim(st)
+dim(st)           #방법1
+
+ncol(st)          #방법2
+nrow(st)
 
 # 6. st의 요약 정보 출력
 str(st)
 summary(st)
 
 # 7. st의 행별 합계와 평균 출력
-apply(st, 1, sum)
+apply(st, 1, sum)     #방법1
 apply(st, 1, mean)
 
+rowSums(st)           #방법2
+rowMeans(st)
 # 8. st의 열별 합계와 평균 출력
 apply(st, 2, sum)
 apply(st, 2, mean)
@@ -64,8 +69,8 @@ apply(st, 2, mean)
 st['Florida', ]
 
 # 10. 50개 주의 수입(Income) 정보만 출력
-st$Income
-st[ ,'Income']
+st$Income        #방법1
+st[ ,'Income']   #방법2     
 
 # 11. Texas 주의 면적(Area)을 출력
 st['Texas','Area']
@@ -74,30 +79,30 @@ st['Texas','Area']
 st['Ohio',c('Population','Income')]
 
 # 13. 인구가 5,000 이상인 주의 데이터만 출력
-subset(st, Population > 5000)
+subset(st, Population >= 5000)
 
 # 14. 수입이 4,500 이상인 주의 인구, 수입, 면적을 출력
-A<- subset(st, Income > 4500)
+A<- subset(st, Income >= 4500)
 A[ ,c('Population','Income','Area')]
 
 # 15. 수입이 4,500 이상인 주는 몇 개인지 출력
 B<- dim(A)
 B[1]
 
-nrow(A)
+nrow(A)       #방법2
 
 # 16. 전체 면적(Area)이 100,000 이상이고, 결빙일수(Frost)가 120 이상인 주의 정보 출력
-subset(st, Area > 100000 & Frost > 120)
+subset(st, Area >= 100000 & Frost >= 120)
 
 # 17. 인구(Population)가 2,000 미만이고, 범죄율(Murder)이 12미만인 주의 정보 출력
 subset(st, Population < 2000 & Murder < 12)
 
 # 18. 문맹률(Illiteracy)이 2.0 이상인 주의 평균 수입은 얼마인지 출력
-C<- subset(st, Illiteracy > 2.0)
+C<- subset(st, Illiteracy >= 2.0)
 mean(C[,'Income'])
 
 # 19. 문맹률(Illiteracy)이 2.0 미만인 주와 2.0 이상인 주의 평균 수입의 차이 출력
-C<- subset(st, Illiteracy > 2.0)
+C<- subset(st, Illiteracy >= 2.0)
 D<- subset(st, Illiteracy < 2.0)
 abs(mean(C[,'Income'])-mean(D[,'Income']))
 
@@ -124,14 +129,14 @@ dim(mtcars)
 str(mtcars)
 
 # 4. 연비(mpg)가 가장 좋은 자동차 모델 출력
-max(mtcars[,'mpg'])
-rownames(subset(mtcars , mpg ==33.9 ))                            
+mt1<- max(mtcars[,'mpg'])
+rownames(subset(mtcars , mpg ==mt1 ))                            
 
 # 5. gear가 4인 자동차 모델 중 연비가 가장 낮은 모델 출력
 head(mtcars)
 I<- subset(mtcars, gear==4)
-min(I$mpg)
-rownames(subset(mtcars , mpg ==17.8 ))
+mt2 <- min(I$mpg)
+rownames(subset(mtcars , mpg ==mt2 ))
 
 # 6. Honda Civic의 연비(mpg)와 gear 수 출력
 mt1 <- mtcars['Honda Civic', ]
