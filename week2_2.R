@@ -88,7 +88,9 @@ lines(month, late2, type = "b", col="blue")
 #0단계 : 문제 정의
 #1단계 : 분석 대상 데이터셋 준비
 #         BostonHousing 데이터셋(mlbench pac.)
-install.packages("mlbench")
+
+
+#install.packages("mlbench")                ##자료패키지
 library(mlbench)
 data("BostonHousing")
 #crim : 1인당 범죄율

@@ -52,7 +52,11 @@ na_count
 
 barplot(na_count[na_count>0])
 
-install.packages("VIM")
+
+
+
+
+#install.packages("VIM")                      ##VIM패키지 (시각화 패키지)##
 require(VIM)
 
 #결측치 자료 조합 확인용 시각화 도구
@@ -91,8 +95,8 @@ head(st)
 newdata <- st[complete.cases(st),]
 head(newdata)
 
-#데이터 가공
-#데이터 정렬
+#데이터 가공 & 데이터 정렬
+
 #Vector정렬
 v1 <- c(1,7,6,8,4,2,3)
 order(v1)
@@ -125,7 +129,9 @@ subset(iris, Sepal.Length>5.1&Sepal.Width>3.9)
 subset(iris, Sepal.Length>7.6,
        select = c(Petal.Length,Petal.Width))
 
+
 #데이터 sampling
+
 #숫자를 임의로 추출(Vector)
 
 x <- 1:100
@@ -174,7 +180,6 @@ agg <- aggregate(iris[,-5],
 agg
 
 head(mtcars)
-
 agg <- aggregate(mtcars,
                  by=list(cyl=mtcars$cyl,vs=mtcars$vs),
                  FUN=max)
@@ -186,6 +191,7 @@ x <- data.frame(name=c("a","b","c"),
 x
 y <- data.frame(name=c("a","b","d"),
                 korean=c(75,60,90))
+y
 z <- merge(x,y,by=c("name"))
 z
 
@@ -205,7 +211,8 @@ merge(x,y,by.x = c("name"),
 
 #dplyr package
 
-install.packages("dplyr")
+
+#install.packages("dplyr")              ##dplyr패키지 (파이프 연산자 패키지)##
 library(dplyr)
 
 # %>% : pipe 연산자 (왼쪽 컨트롤+쉬프트+m)
@@ -318,7 +325,7 @@ df %>%
             mean_science=mean(science),
             n=n())
 
-install.packages("ggplot2")
+#install.packages("ggplot2")            ##ggplot2패키지 (자료 패키지)##
 library(ggplot2)
 str(ggplot2::mpg)                       #( ggplot::mpg ) 라이브러리 안치고 열기 가능 
 mpg <- data.frame(ggplot2::mpg)
@@ -376,13 +383,13 @@ df2 <- data.frame(id=c(1,2,3,4,5),
 df_all <-bind_rows(df1,df2) 
 df_all
 
-install.packages("psych")
+#install.packages("psych")              ##psych패키지 (describe 함수 패키지)##
 library(psych)
 
 summary(mtcars)
 describe(mtcars)
 
-install.packages("descr")
+#install.packages("descr")             ##descr패키지 (freq 함수 있는 패키지)##
 library(descr)
 
 df <- data.frame(id=c(1,2,4),
