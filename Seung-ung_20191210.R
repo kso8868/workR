@@ -35,9 +35,9 @@ ggplot(mtcars, aes(x=mpg))+
 # 레이블을 한글로 표시하시오. (구간 간격은 3.0, 막대의 색은 steelblue로 한다.)
 View(trees)
 ggplot(trees, aes( x = Girth))+
-  geom_histogram(binwidth = 0.3,
+  geom_histogram(binwidth = 3.0,
                  fill = "steelblue")+
-  labs(x="나무둘레",y="빈도수")
+  labs(x="나무둘레",y="빈도수",title="나무둘레와 빈도수")
 
 
 # 문5)
