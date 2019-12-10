@@ -159,8 +159,8 @@ ggmap(map7)
 gmap <- ggmap(map7)
 gmap+
   geom_text(data=df.city,                         #데이터셋
-            aes(x=lon,y=lat),                #텍스트 위치
-            size=5,                          #텍스트 크기
+            aes(x=lon,y=lat),                     #텍스트 위치
+            size=5,                               #텍스트 크기
             label=df.city$name)                   #텍스트 이름
 
 
@@ -168,7 +168,7 @@ gmap+
 # R을 이용하여 서울, 경기, 강원 지역의 국립공원 위치를 지도 상에 마커로
 # 시하되 국립공원의 이름을 함께 표시하시오.
 
-add_nat <- c("북한산", "설악산",
+add_mount <- c("북한산", "설악산",
           "오대산", "치악산","태백산")
 nat <- geocode(enc2utf8(add_mount))
 nat
@@ -187,8 +187,8 @@ ggmap(map8)
 gmap1 <- ggmap(map8)
 gmap1+
   geom_text(data=df.nat,                         #데이터셋
-            aes(x=lon,y=lat),                #텍스트 위치
-            size=5,                          #텍스트 크기
+            aes(x=lon,y=lat),                    #텍스트 위치
+            size=5,                              #텍스트 크기
             label=df.nat$name)                   #텍스트 이름
 
 # 문7) 
@@ -204,11 +204,11 @@ str(acc)                    #'시군수' 자료가 펙터타입임.
 ac<- as.character(acc$시군구)   #'시군구' Factor타입을 문자타입으로 전환
 ac
 
-traffic <- geocode(enc2utf8(ac))
+traffic <-geocode(enc2utf8(ac))
 traffic
 
-df.traffic <- data.frame(acc,lon= traffic$lon,
-                 lat=traffic$lat)
+df.traffic <- data.frame(acc,lon = traffic$lon,
+                 lat = traffic$lat)
 df.traffic
 
 cen9 <- c(126.983191,37.528566)         #서울을 센터로 잡음
