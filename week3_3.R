@@ -110,7 +110,7 @@ useNIADic()
 useSejongDic()
 
 #2.텍스트 데이터 가져오기
-setwd('D:/workR')
+setwd('D:/workR/teacher')
 word_data <- readLines('애국가(가사).txt')
 word_data
 
