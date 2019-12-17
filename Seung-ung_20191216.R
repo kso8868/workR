@@ -1,0 +1,44 @@
+# * 실습 결과를 R Script file로 제출
+# * R Script file 이름은 "영문본인이름_제출일날짜.R" 부여하여 제출
+# * R Script file의 처음에 주석으로 본인 이름과 작성일/제출일 기록
+# 
+#강승웅/20191216
+
+# 문1)
+# state.x77 데이터셋에서 문맹률(Illiteracy)을 이용해 범죄율(Murder)을 예측
+# 하는 단순선형 회귀모델을 만드시오. 그리고 문맹률이 0.5, 1.0, 1.5일 때 범
+# 죄율을 예측하여 보시오.
+str(state.x77)
+st<- data.frame(state.x77)
+plot(Murder~Illiteracy,data =st)
+model <- lm(Murder~Illiteracy,data =st)
+abline(model)
+
+df <- data.frame(Illiteracy=c(0.5, 1.0, 1.5))
+predict(model, df)
+
+#문2)
+# trees 데이터셋에서 나무둘레(Girth)로 나무의 볼륨(Volume)을 예측하는 단
+# 선형 회귀모델을 만드시오. 그리고 나무 둘레가 8.5, 9.0, 9.5일 때, 나무의
+# 볼륨(Volume)을 예측하여 보시오.
+str(trees)
+
+plot(Volume~Girth,data = trees)
+model1 <- lm(Volume~Girth, data = trees)
+abline(model1)
+
+df1 <- data.frame(Girth=c(8.5, 9.0, 9.5))
+predict(model1, df1)
+# 
+# 문3) 
+# pressure 데이터셋에서 온도(temperature)로 기압(pressure)을 예측하는 단
+# 순선형 회귀모델을 만드시오. 그리고 온도가 65, 95, 155일 때 기압을 예측
+# 하여 보시오.
+str(pressure)
+
+plot(pressure~temperature,data = pressure)
+model2 <- lm(pressure~temperature, data = pressure)
+abline(model2)
+
+df2 <- data.frame(temperature=c(65, 95, 155))
+predict(model2, df2)
